@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 29588d6a6f5a11e47ba61a1100f22aae
+guid: 7ccc726573a7d84489ac7295d121aa8c
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -38,7 +38,11 @@ TextureImporter:
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
   spriteSheet:
     sprites:
     - name: land_0

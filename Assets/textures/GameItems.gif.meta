@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-guid: d9742985779666c4d8c18f6a59866e72
+guid: 05ed59507434f2c43b81c3d85e327c9c
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: GameItems_0
-    21300002: GameItems_1
-    21300004: GameItems_2
-    21300006: GameItems_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -40,11 +35,14 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
   spriteSheet:
     sprites:
     - name: GameItems_0
@@ -56,7 +54,6 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: GameItems_1
       rect:
         serializedVersion: 2
@@ -66,7 +63,6 @@ TextureImporter:
         height: 99
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: GameItems_2
       rect:
         serializedVersion: 2
@@ -76,7 +72,6 @@ TextureImporter:
         height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: GameItems_3
       rect:
         serializedVersion: 2
@@ -86,6 +81,5 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

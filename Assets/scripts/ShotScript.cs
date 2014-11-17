@@ -16,14 +16,11 @@ public class ShotScript : MonoBehaviour
 	/// Projectile damage player or enemies?
 	/// </summary>
 	public bool isEnemyShot = false;
-
+	
 	void Start()
 	{
 		// 2 - Limited time to live to avoid any leak
-		if(gameObject.name == "Bullet(Clone)" || gameObject.name == "Bullet"){
-			Destroy(gameObject, 2); // 5sec
-		}
+		Destroy(gameObject, 20); // 20sec
 	}
 }
-
 
