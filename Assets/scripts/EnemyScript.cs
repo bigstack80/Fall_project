@@ -39,18 +39,18 @@ public class EnemyScript : MonoBehaviour
 		if (hp > 0) {
 			Vector3 line = transform.position - player.position;
 			double range = Math.Sqrt (Math.Pow ((double)line.x, 2) + Math.Pow ((double)line.y, 2));
-			if (range < 10) {
+			if (range < 1.75) {
 				transform.LookAt (player.position);
 				transform.Rotate (0, 90, 90);
-				float speed = 0.075F;
-				if (range <= 5) {
+				float speed = 0.01F;
+				if (range <= 0.75) {
 					speed = 0.0F;
-				} else if (range <= 2) {
+				} else if (range <= 0.3) {
 					speed = -0.01F;
 				}
 				transform.Translate (0, speed, 0);
 			}
-			if (range <= 6) {
+			if (range <= 1.25) {
 
 				WeaponScript[] weapon = GetComponentsInChildren<WeaponScript> ();
 				foreach (WeaponScript w in weapon) {
