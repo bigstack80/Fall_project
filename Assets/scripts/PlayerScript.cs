@@ -88,11 +88,10 @@ public class PlayerScript : MonoBehaviour
 			if(gameObject.name == "Player"){
 				print ("game over!");
 
-				// call the game over option
-				transform.parent.gameObject.AddComponent<GameOverScript>();
+				// display the game over screen
+				gameObject.AddComponent<GameOverScript>();
 			}
 		}
 	}
-
 }
 
