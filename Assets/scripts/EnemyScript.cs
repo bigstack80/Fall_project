@@ -12,11 +12,18 @@ public class EnemyScript : MonoBehaviour
 
 	//health
 	public int hp = 2;
-	
+	public float speed;
+
+	Animator anim;
+
+	void Start(){
+		anim = GetComponent<Animator> ();
+		}
 	void Awake()
 	{
 		// Retrieve the player object
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+
 	}
 	void OnTriggerEnter2D(Collider2D otherCollider)
 	{
@@ -42,12 +49,13 @@ public class EnemyScript : MonoBehaviour
 			if (range < 5.75) {
 				transform.LookAt (player.position);
 				transform.Rotate (0, 90, 90);
-				float speed = 0.01F;
+				speed = 0.02F;
 				if (range <= 2.75) {
 					speed = 0.0F;
 				} else if (range <= 1) {
-					speed = -0.01F;
+					speed = -0.02F;
 				}
+				anim.SetFloat ("Speed", Mathf.Abs (speed));
 				transform.Translate (0, speed, 0);
 			}
 			if (range <= 4) {
@@ -60,6 +68,7 @@ public class EnemyScript : MonoBehaviour
 					}
 				}
 			}
+
 		}
 		else if(hp <= 0)
 		{
@@ -70,4 +79,7 @@ public class EnemyScript : MonoBehaviour
 		}
 
 	}
+	void FixedUpdate(){
+		//anim.SetFloat ("Speed", 1.0f);
+		}
 }
