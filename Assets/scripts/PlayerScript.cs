@@ -98,7 +98,7 @@ public class PlayerScript : MonoBehaviour
 			
 			if (shoot)
 			{
-				WeaponScript weapon = GetComponent<WeaponScript>();
+				WeaponScript weapon = transform.FindChild("sniper").GetComponent<WeaponScript>();
 				if (weapon != null)
 				{
 					// false because the player is not an enemy

@@ -49,18 +49,25 @@ public class WeaponScript : MonoBehaviour
 			//x = cos
 			//x y for 0-90 and 180-270
 			//y x for 90-180 and 270-360
-			float a = 0.2f;
-			float b = 0.15f;
+			float a = 0.0f;
+			float b = 0.4f;
 
 			float angle = transform.eulerAngles.z;
 
-			a = (Mathf.Cos(((angle/180)*Mathf.PI)))*a - (Mathf.Sin (((angle/180)*Mathf.PI)))*b;
-			b = (Mathf.Sin(((angle/180)*Mathf.PI)))*a + (Mathf.Cos (((angle/180)*Mathf.PI)))*b;
-			print (a);
-			print (b);
-			a = b = 0;
-
-			Vector3 offset = new Vector3(transform.position.x+a, transform.position.y+b, transform.position.z);
+			float w = (Mathf.Sin(((angle/180)*Mathf.PI)))*a;
+			float x = (Mathf.Cos(((angle/180)*Mathf.PI)))*b;
+			float y = (Mathf.Cos(((angle/180)*Mathf.PI)))*a;
+			float z = (Mathf.Sin(((angle/180)*Mathf.PI)))*b;
+			b = w + x;
+			a = y + z;
+			//a = ((Mathf.Cos(((angle/180)*Mathf.PI)))*a)+ ((Mathf.Sin (((angle/180)*Mathf.PI)))*b);
+			//b = ((Mathf.Sin (((angle/180)*Mathf.PI)))*a) + ((Mathf.Cos (((angle/180)*Mathf.PI)))*b);
+			
+			//print (a);
+			//print (b);
+			//a = b = 0;
+			
+			Vector3 offset = new Vector3(transform.position.x-a, transform.position.y+b, transform.position.z);
 
 			GameObject shotTransform = GameObject.Instantiate(Resources.Load ("Bullet"), offset, transform.rotation) as GameObject;
 
