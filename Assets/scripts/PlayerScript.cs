@@ -44,19 +44,29 @@ public class PlayerScript : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D otherCollider)
 	{
-		ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
-		if (shot != null)
-		{
-			// Avoid friendly fire
-			//true for enemy, false for player
-			if (shot.isEnemyShot != false)
-			{	
-				print ("hit player with enemy bullet");
-				hp--;
-				// Destroy the shot
-				Destroy(shot.gameObject); // Remember to always target the game object, otherwise you will just remove the script
+
+		if (otherCollider.gameObject.name == "Bullet(Clone)") {
+			ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
+			if (shot != null)
+			{
+				// Avoid friendly fire
+				//true for enemy, false for player
+				if (shot.isEnemyShot != false)
+				{	
+					print ("hit player with enemy bullet");
+					hp--;
+					// Destroy the shot
+					Destroy(shot.gameObject); // Remember to always target the game object, otherwise you will just remove the script
+				}
 			}
 		}
+
+		if (otherCollider.gameObject.tag == "Finish") {
+			print ("made it to the finish");
+			//Application.LoadLevel ("Stage2");
+			gameObject.AddComponent<FinishScript>();
+		}
+
 	}
 
 	void FixedUpdate()
