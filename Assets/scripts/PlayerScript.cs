@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
 
 	//player health
 	public int hp = 10;
+	public int hp_max = 20;
 	public Vector2 pos;
 	public Vector2 size;
 	public float barDisplay; //current health
@@ -65,6 +66,13 @@ public class PlayerScript : MonoBehaviour
 			print ("made it to the finish");
 			//Application.LoadLevel ("Stage2");
 			gameObject.AddComponent<FinishScript>();
+		}
+
+		if (otherCollider.gameObject.name == "Chest") {
+			print ("found a chest");
+			if ( hp < hp_max ) {
+				hp++;
+			}
 		}
 
 	}
