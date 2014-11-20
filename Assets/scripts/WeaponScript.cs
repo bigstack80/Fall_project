@@ -70,6 +70,10 @@ public class WeaponScript : MonoBehaviour
 			{
 				shot.isEnemyShot = isEnemy;
 			}
+
+			if ( isEnemy == false ) {
+				SoundEffectsHelper.Instance.MakePlayerShotSound();
+			}
 			
 			// Make the weapon shoot always forwards
 			MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
@@ -90,6 +94,7 @@ public class WeaponScript : MonoBehaviour
 			return shootCooldown <= 0f;
 		}
 	}
+	
 }
 
 

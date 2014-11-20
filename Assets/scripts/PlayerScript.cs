@@ -21,6 +21,7 @@ public class PlayerScript : MonoBehaviour
 	public Texture2D emptyTex;
 	public Texture2D fullTex;
 
+
 	void Start() {
 		pos = new Vector2(60,20);
 		size = new Vector2(100,20);
@@ -76,11 +77,28 @@ public class PlayerScript : MonoBehaviour
 			Destroy(otherCollider.gameObject);
 		}
 
+		if (otherCollider.gameObject.name == "GunUpgrade") {
+			print ("found a gun upgrade");
+
+			// increase the players weapon fire rate
+			WeaponScript weapon = GetComponent<WeaponScript>();
+			if (weapon != null)
+			{			
+				weapon.shootingRate -= .1F;
+			}
+
+			// destroy the gun ugrade object
+			Destroy(otherCollider.gameObject);
+
+		}
+
 	}
 
 	void FixedUpdate()
 	{
 		barDisplay = hp*10;
+
+
 		if(hp > 0)
 		{
 			// movement and rotation
@@ -104,7 +122,6 @@ public class PlayerScript : MonoBehaviour
 				{
 					// false because the player is not an enemy
 					weapon.Attack(false);
-					SoundEffectsHelper.Instance.MakePlayerShotSound();
 				}
 			}
 		}
