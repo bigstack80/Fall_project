@@ -73,6 +73,7 @@ public class PlayerScript : MonoBehaviour
 			if ( hp < hp_max ) {
 				hp++;
 			}
+			Destroy(otherCollider.gameObject);
 		}
 
 	}
